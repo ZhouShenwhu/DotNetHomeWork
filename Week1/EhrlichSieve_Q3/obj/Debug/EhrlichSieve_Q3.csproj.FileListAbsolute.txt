@@ -1,6 +1,0 @@
-E:\第三学年\.Net架构设计\Code\Week1\EhrlichSieve_Q3\bin\Debug\EhrlichSieve_Q3.exe.config
-E:\第三学年\.Net架构设计\Code\Week1\EhrlichSieve_Q3\bin\Debug\EhrlichSieve_Q3.exe
-E:\第三学年\.Net架构设计\Code\Week1\EhrlichSieve_Q3\bin\Debug\EhrlichSieve_Q3.pdb
-E:\第三学年\.Net架构设计\Code\Week1\EhrlichSieve_Q3\obj\Debug\EhrlichSieve_Q3.csproj.CoreCompileInputs.cache
-E:\第三学年\.Net架构设计\Code\Week1\EhrlichSieve_Q3\obj\Debug\EhrlichSieve_Q3.exe
-E:\第三学年\.Net架构设计\Code\Week1\EhrlichSieve_Q3\obj\Debug\EhrlichSieve_Q3.pdb

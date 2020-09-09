@@ -1,6 +1,0 @@
-E:\第三学年\.Net架构设计\Code\Week1\ArrayDescription_Q2\bin\Debug\ArrayDescription_Q2.exe.config
-E:\第三学年\.Net架构设计\Code\Week1\ArrayDescription_Q2\bin\Debug\ArrayDescription_Q2.exe
-E:\第三学年\.Net架构设计\Code\Week1\ArrayDescription_Q2\bin\Debug\ArrayDescription_Q2.pdb
-E:\第三学年\.Net架构设计\Code\Week1\ArrayDescription_Q2\obj\Debug\ArrayDescription_Q2.csproj.CoreCompileInputs.cache
-E:\第三学年\.Net架构设计\Code\Week1\ArrayDescription_Q2\obj\Debug\ArrayDescription_Q2.exe
-E:\第三学年\.Net架构设计\Code\Week1\ArrayDescription_Q2\obj\Debug\ArrayDescription_Q2.pdb
