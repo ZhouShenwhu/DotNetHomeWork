@@ -1,0 +1,6 @@
+E:\第三学年\.Net架构设计\Code\Week1\Toplitzmatrix_Q4\bin\Debug\Toplitzmatrix_Q4.exe.config
+E:\第三学年\.Net架构设计\Code\Week1\Toplitzmatrix_Q4\bin\Debug\Toplitzmatrix_Q4.exe
+E:\第三学年\.Net架构设计\Code\Week1\Toplitzmatrix_Q4\bin\Debug\Toplitzmatrix_Q4.pdb
+E:\第三学年\.Net架构设计\Code\Week1\Toplitzmatrix_Q4\obj\Debug\Toplitzmatrix_Q4.csproj.CoreCompileInputs.cache
+E:\第三学年\.Net架构设计\Code\Week1\Toplitzmatrix_Q4\obj\Debug\Toplitzmatrix_Q4.exe
+E:\第三学年\.Net架构设计\Code\Week1\Toplitzmatrix_Q4\obj\Debug\Toplitzmatrix_Q4.pdb

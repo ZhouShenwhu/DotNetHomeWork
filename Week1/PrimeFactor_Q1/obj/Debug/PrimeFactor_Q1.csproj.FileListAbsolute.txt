@@ -1,0 +1,7 @@
+E:\第三学年\.Net架构设计\Code\Week1\PrimeFactor_Q1\bin\Debug\PrimeFactor_Q1.exe.config
+E:\第三学年\.Net架构设计\Code\Week1\PrimeFactor_Q1\bin\Debug\PrimeFactor_Q1.exe
+E:\第三学年\.Net架构设计\Code\Week1\PrimeFactor_Q1\bin\Debug\PrimeFactor_Q1.pdb
+E:\第三学年\.Net架构设计\Code\Week1\PrimeFactor_Q1\obj\Debug\PrimeFactor_Q1.csprojAssemblyReference.cache
+E:\第三学年\.Net架构设计\Code\Week1\PrimeFactor_Q1\obj\Debug\PrimeFactor_Q1.csproj.CoreCompileInputs.cache
+E:\第三学年\.Net架构设计\Code\Week1\PrimeFactor_Q1\obj\Debug\PrimeFactor_Q1.exe
+E:\第三学年\.Net架构设计\Code\Week1\PrimeFactor_Q1\obj\Debug\PrimeFactor_Q1.pdb
