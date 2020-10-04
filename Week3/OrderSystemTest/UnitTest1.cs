@@ -29,7 +29,7 @@ namespace OrderSystemTest
         public void TestAdd()
         {
             var res = new List<Order> { c_a, b };
-            CollectionAssert.AreEqual(ZS.orders, res);
+            CollectionAssert.AreEqual(ZS.GetOrders(), res);
         }
         [TestMethod]
         public void TestDelete()
@@ -37,7 +37,7 @@ namespace OrderSystemTest
             ZS.DeleteOrder(1);
             
             var res = new List<Order> { b };
-            CollectionAssert.AreEqual(ZS.orders, res);
+            CollectionAssert.AreEqual(ZS.GetOrders(), res);
             ZS.AddOrder(c_a);
         }
         [TestMethod]
@@ -45,20 +45,20 @@ namespace OrderSystemTest
         {
             ZS.SortOrder("ID");
             var res1 = new List<Order> { c_a, b };
-            CollectionAssert.AreEqual(ZS.orders, res1);
+            CollectionAssert.AreEqual(ZS.GetOrders(), res1);
 
             ZS.SortOrder("TotalPrice");
             var res2 = new List<Order> { b, c_a };
             //ZS.orders.ForEach(x => Console.WriteLine(x));
-            CollectionAssert.AreEqual(ZS.orders, res2);
+            CollectionAssert.AreEqual(ZS.GetOrders(), res2);
         }
         [TestMethod]
         public void TestXML()
         {
-            ZS.Export();
-            List<Order> res = ZS.orders;
-            ZS.Import();
-            CollectionAssert.Equals(ZS.orders, ZS);
+            ZS.Export("Order.xml");
+            List<Order> res = ZS.GetOrders();
+            ZS.Import("Order.xml");
+            CollectionAssert.Equals(ZS.GetOrders(), ZS);
         }
         [TestMethod]
         public void TestSearch()

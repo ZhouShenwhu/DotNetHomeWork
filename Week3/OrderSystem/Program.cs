@@ -27,19 +27,21 @@ namespace OrderSystem
             ZS.AddOrder(d);
             ZS.AddOrder(e);
             ZS.AddOrder(f);
-            ZS.DeleteOrder(2);
+            //ZS.DeleteOrder(2);
             ZS.SortOrder("TotalPrice");
             //ZS.orders.ForEach(x => Console.WriteLine(x));
 
             ZS.SortOrder("ID");
             //ZS.orders.ForEach(x => Console.WriteLine(x));
             var res1 = ZS.SearchByID(2);
+
             foreach(var i in res1)
             {
                 Console.WriteLine(i);
             }
-            ZS.Export();
-            ZS.Import();
+            Console.WriteLine("*********");
+            ZS.Export("Order.xml");
+            ZS.Import("Order.xml");
             var res2 = ZS.searchByClient("Bob");
             foreach (var i in res2)
             {
