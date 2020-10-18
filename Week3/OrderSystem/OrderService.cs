@@ -151,14 +151,14 @@ namespace OrderSystem
                 if (Path.GetExtension(path) != ".xml")
                     throw new Exception("文件不存在或格式不规范！");
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
-                using (FileStream fs = new FileStream("Order.xml", FileMode.Open))
+                using (FileStream fs = new FileStream(path, FileMode.Open))
                 {
                     orders = (List<Order>)xmlSerializer.Deserialize(fs);
                 }
             }
-            catch
+            catch(Exception e)
             {
-                throw new Exception("Deserialize Failed!");
+                Console.WriteLine(e.Message);
             }
         }
     }

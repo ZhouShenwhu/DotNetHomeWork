@@ -44,10 +44,12 @@ namespace OrderSystemWinForm
         {
             Form2 MyForm = new Form2();
             MyForm.SendFromForm2 += new Form2.SendValue(NewOrderInfo);
-            MyForm.ShowDialog();
-            Order tmp = new Order(OrderID_new, Cname_new, Pname_new, Price_new, count_new);
-            zs.AddOrder(tmp);
-            FlushList();
+            if (MyForm.ShowDialog() == DialogResult.OK)
+            {
+                Order tmp = new Order(OrderID_new, Cname_new, Pname_new, Price_new, count_new);
+                zs.AddOrder(tmp);
+                FlushList();
+            }
         }
         //传递数据
         void NewOrderInfo(int ID, string Cname, string Pname, double Price, int count)
@@ -73,10 +75,12 @@ namespace OrderSystemWinForm
             {
                 Form2 myForm = new Form2(tmp.OrderID,tmp.Client);
                 myForm.SendFromForm2 += new Form2.SendValue(NewOrderInfo);
-                myForm.ShowDialog();
-                Order tmp2 = new Order(OrderID_new, Cname_new, Pname_new, Price_new, count_new);
-                zs.AddOrder(tmp2);
-                FlushList();
+                if (myForm.ShowDialog() == DialogResult.OK)
+                {
+                    Order tmp2 = new Order(OrderID_new, Cname_new, Pname_new, Price_new, count_new);
+                    zs.AddOrder(tmp2);
+                    FlushList();
+                }
             }
             else
                 MessageBox.Show("请选定需要添加明细的订单");

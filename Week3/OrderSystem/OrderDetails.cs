@@ -10,8 +10,8 @@ namespace OrderSystem
     public class OrderDetails
     {
         //商品名称-单价-数量
-        public string ProductName { get; }
-        public double Price { get; }
+        public string ProductName { get; set; }
+        public double Price { get; set; }
         public int Count { get; set; }
         public OrderDetails() { }
         public OrderDetails(string ProductName,double Price,int Count)
