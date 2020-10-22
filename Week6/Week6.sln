@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSystemEF", "OrderSystemEF\OrderSystemEF.csproj", "{D8B3E191-9513-4C86-9097-0786D9B4AD04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSystemWEBAPI", "OrderSystemWEBAPI\OrderSystemWEBAPI.csproj", "{92930524-9028-455B-BC3E-F990E5F88BB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8B3E191-9513-4C86-9097-0786D9B4AD04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B3E191-9513-4C86-9097-0786D9B4AD04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B3E191-9513-4C86-9097-0786D9B4AD04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B3E191-9513-4C86-9097-0786D9B4AD04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92930524-9028-455B-BC3E-F990E5F88BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92930524-9028-455B-BC3E-F990E5F88BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92930524-9028-455B-BC3E-F990E5F88BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92930524-9028-455B-BC3E-F990E5F88BB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BC28DE3-F156-4249-B602-11606F9838EE}
+	EndGlobalSection
+EndGlobal
