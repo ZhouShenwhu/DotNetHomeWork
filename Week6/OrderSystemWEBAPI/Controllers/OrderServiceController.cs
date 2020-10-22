@@ -69,6 +69,61 @@ namespace OrderSystemWEBAPI.Controllers
                 return BadRequest("删除订单失败");
             }
         }
+        //查询订单
+        [HttpGet("SearchByClient")]
+        public IActionResult SearchByClient(string Client)
+        {
+            try
+            {
+                var res = db.Orders.Where(o => o.Client == Client).Include("Details");
+                return Ok(res);
+            }catch
+            {
+                return BadRequest("查询失败");
+            }
+        }
+        [HttpGet("SearchByPrice")]
+        public IActionResult SeachByPrice(double price)
+        {
+            try
+            {
+                var res = db.Orders.Where(o => o.TotalPrice >= price).Include("Details");
+                return Ok(res);
+            }
+            catch(Exception e)
+            {
+                return BadRequest("查询失败");
+            }
+        }
+        [HttpGet("SearchByOrderID")]
+        public IActionResult SearchByOrderID(int OrderID)
+        {
+            try
+            {
+                var res = db.Orders.Where(o => o.OrderID == OrderID).Include("Details");
+                return Ok(res);
+            }catch
+            {
+                return BadRequest("查询失败");
+            }
+        }
+        [HttpGet("SearchByProductName")]
+        public IActionResult SearchByProductName(string ProductName)
+        {
+            try
+            {
+                var OrderID = db.Details.Where(o => o.ProductName == ProductName).Select(o => o.OrderID).ToList();
+                if(OrderID.Count!=0)
+                {
+                    var res = db.Orders.Where(x => OrderID.Contains(x.OrderID)).Include("Details");
+                    return Ok(res);
+                }
+                return BadRequest("无包含此商品的订单");
+            }catch
+            {
+                return BadRequest("查询失败");
+            }
+        }
 
     }
 }
