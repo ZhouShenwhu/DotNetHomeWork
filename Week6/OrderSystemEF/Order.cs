@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace OrderSystemEF
 {
@@ -13,10 +14,16 @@ namespace OrderSystemEF
     {
         //订单号-客户-总价格
         [Key]
-        [DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]//不自动增长
+        //取消OrderID自增
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int OrderID { get; set; }
         public string Client { get; set; }
-        public double TotalPrice { get ; set; }
+        [XmlIgnore]
+        public double TotalPrice
+        {
+            get => Details.Sum(o => o.Price * o.Count);
+            set { }
+        }
         //存储一个订单所有的订单明细
         public List<OrderDetails> Details { get; set; }
         //不同的构造函数
@@ -54,7 +61,7 @@ namespace OrderSystemEF
                     if (x.ProductName == Detail.ProductName)
                         x.Count += Detail.Count;
                 });
-            CalTotalPrice();
+            //CalTotalPrice();
         }
         public void AddDetail(string pname, double price, int count,int OrderID)
         {
@@ -72,7 +79,7 @@ namespace OrderSystemEF
                 OrderDetails tmp = new OrderDetails(pname, price, count,OrderID);
                 Details.Add(tmp);
             }
-            CalTotalPrice();
+            //CalTotalPrice();
         }
         //删除订单明细
         public void DeleteDetail(OrderDetails Detail)
@@ -90,13 +97,7 @@ namespace OrderSystemEF
             else
                 Console.WriteLine("此商品不存在！");
         }
-        //计算总价格
-        public void CalTotalPrice()
-        {
-            //使用lambda表达式重新计算总价格
-            this.TotalPrice = 0;
-            Details.ForEach(x => this.TotalPrice += x.Price * x.Count);
-        }
+        
         //重写Equals函数
         public override bool Equals(object obj)
         {
@@ -107,7 +108,11 @@ namespace OrderSystemEF
         {
             return OrderID.GetHashCode();
         }
-
+        //重写ToString函数
+        public override string ToString()
+        {
+            return "订单号:" + OrderID + ",客户:" + Client + ",订单总价:" + TotalPrice;
+        }
         //默认排序按照总价格进行升序排序
         public int CompareTo(object obj)
         {

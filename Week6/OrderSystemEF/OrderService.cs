@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Renci.SshNet.Messages;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
@@ -17,7 +18,7 @@ namespace OrderSystemEF
         {
             using(var db = new OrderContext())
             {
-                return db.Orders.ToList();
+                return db.Orders.Include("Details").ToList();
             }
         }
         //添加订单
@@ -31,9 +32,7 @@ namespace OrderSystemEF
                 {
                     tmpDetails.ForEachAsync(o => myOrder.AddDetail(o));
                     db.Details.RemoveRange(tmpDetails);
-                    db.SaveChanges();
                     db.Details.AddRange(myOrder.Details);
-                    db.Orders.FirstOrDefault(o => o.OrderID == myOrder.OrderID).TotalPrice = myOrder.TotalPrice;
                     db.SaveChanges();
                 }
                 else
@@ -54,6 +53,17 @@ namespace OrderSystemEF
                 db.SaveChanges();
             }
         }
+        //删除订单明细
+        public static void DeleteOrderDetail(string ProductName,int OrderID)
+        {
+            using(var db = new OrderContext())
+            {
+                var res = db.Details
+                    .FirstOrDefault(x => x.OrderID == OrderID && x.ProductName == ProductName);
+                db.Details.Remove(res);
+                db.SaveChanges();
+            }
+        }
         //修改订单
         public static void UpdateOrder(Order newOrder)
         {
@@ -61,51 +71,52 @@ namespace OrderSystemEF
             AddOrder(newOrder);
         }
         //使用订单号进行查询（订单号是唯一的）
-        public Order SearchByID(int ID)
+        public static Order SearchByID(int ID)
         {
             using(var db = new OrderContext())
             {
-                var res = db.Orders.FirstOrDefault(x => x.OrderID == ID);
+                var res = db.Orders.Include(o=>o.Details).FirstOrDefault(x => x.OrderID == ID);
                 return res;
             }
         }
         //按照订单的价格进行查询(0:>,1:<)
-        public List<Order> searchByGreaterPrice(double price, bool flag)
+        public static List<Order> searchByGreaterPrice(double price, bool flag)
         {
             using(var db = new OrderContext())
             {
                 if(!flag)
                 {
-                    var res = db.Orders.Where(o => o.TotalPrice >= price).ToList();
+                    var res = db.Orders.Include("Details").Where(o => o.TotalPrice >= price).ToList();
                     return res;
                 }
                 else
                 {
-                    var res = db.Orders.Where(o => o.TotalPrice <= price).ToList();
+                    var res = db.Orders.Include("Details").Where(o => o.TotalPrice <= price).ToList();
                     return res;
                 }
             }
         }
         //使用客户名进行查询
-        public List<Order> searchByClient(string Client)
+        public static List<Order> searchByClient(string Client)
         {
             using(var db = new OrderContext())
             {
-                var res = db.Orders.Where(o => o.Client == Client);
+                var res = db.Orders.Include("Details").Where(o => o.Client == Client);
                 return res.ToList();
             }
         }
         //按照商品名查询
-        public List<Order> searchByProduct(string pname)
+        public static List<Order> searchByProduct(string pname)
         {
-            using(var db=new OrderContext())
+            using(var db = new OrderContext())
             {
-                var res = db.Orders.Where(o => o.Details.Contains(new OrderDetails { ProductName=pname}));
+                List<int> IDList = db.Details.Where(o => o.ProductName == pname).Select(o => o.OrderID).ToList();
+                var res = db.Orders.Include("Details").Where(o => IDList.Contains(o.OrderID));
                 return res.ToList();
             }
         }
         //将订单序列化为XML文件,以及反序列化加载到程序中
-        public void Export(string filename)
+        public static void Export(string filename)
         {
             try
             {
@@ -117,12 +128,12 @@ namespace OrderSystemEF
                     xmlSerializer.Serialize(fs, GetOrders());
                 }
             }
-            catch
+            catch(Exception e)
             {
-                throw new Exception("Serialize Failed!");
+                Console.WriteLine(e.Message);
             }
         }
-        public void Import(string path)
+        public static void Import(string path)
         {
             try
             {

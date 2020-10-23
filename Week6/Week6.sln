@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSystemEF", "OrderSystemEF\OrderSystemEF.csproj", "{D8B3E191-9513-4C86-9097-0786D9B4AD04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSystemWEBAPI", "OrderSystemWEBAPI\OrderSystemWEBAPI.csproj", "{92930524-9028-455B-BC3E-F990E5F88BB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderSystemWEBAPI", "OrderSystemWEBAPI\OrderSystemWEBAPI.csproj", "{92930524-9028-455B-BC3E-F990E5F88BB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSystemWinFormEF", "OrderSystemWinFormEF\OrderSystemWinFormEF.csproj", "{4D784F23-AF8F-4B5E-8925-F9E3E5A0AA39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{92930524-9028-455B-BC3E-F990E5F88BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92930524-9028-455B-BC3E-F990E5F88BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92930524-9028-455B-BC3E-F990E5F88BB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D784F23-AF8F-4B5E-8925-F9E3E5A0AA39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D784F23-AF8F-4B5E-8925-F9E3E5A0AA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D784F23-AF8F-4B5E-8925-F9E3E5A0AA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D784F23-AF8F-4B5E-8925-F9E3E5A0AA39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

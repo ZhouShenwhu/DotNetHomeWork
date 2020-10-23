@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace OrderSystemEF
 {
@@ -19,6 +20,7 @@ namespace OrderSystemEF
         [Key,Column(Order = 2)]
         public int OrderID { get; set; }//自动识别为外键
         [ForeignKey("OrderID")]
+        [XmlIgnore]
         public Order Order { get; set; }
         public OrderDetails() { }
         public OrderDetails(string ProductName, double Price, int Count,int OrderID)
