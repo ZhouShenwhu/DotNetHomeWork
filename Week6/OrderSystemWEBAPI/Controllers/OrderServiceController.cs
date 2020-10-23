@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using K4os.Hash.xxHash;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -52,6 +53,23 @@ namespace OrderSystemWEBAPI.Controllers
                 return BadRequest("添加订单失败");
             }
             
+        }
+        //修改订单
+        [HttpPost("UpdateOrder")]
+        public IActionResult UpdateOrder(Order newOrder)
+        {
+            try
+            {
+                var tmp = db.Details.Where(x => x.OrderID == newOrder.OrderID);
+                db.Details.RemoveRange(tmp);
+                db.Details.AddRange(newOrder.Details);
+                db.SaveChanges();
+                return Ok("修改订单成功");
+            }
+            catch
+            {
+                return BadRequest("更新订单失败");
+            }
         }
         //删除订单
         [HttpGet("DeleteOrder")]
